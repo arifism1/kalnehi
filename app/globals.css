@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #020617;
+  --foreground: #f8fafc;
 }
 
 @theme inline {
@@ -20,7 +20,78 @@
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(160deg, #0f172a 0%, #1e293b 40%, #020617 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  .glass-card {
+    border: 1px solid rgb(255 255 255 / 0.2);
+    border-radius: 1rem;
+    background: rgb(255 255 255 / 0.1);
+    box-shadow: 0 10px 30px rgb(15 23 42 / 0.18);
+    backdrop-filter: blur(12px);
+  }
+
+  .glass-card-soft {
+    border: 1px solid rgb(255 255 255 / 0.15);
+    border-radius: 1rem;
+    background: rgb(255 255 255 / 0.05);
+    box-shadow: 0 10px 30px rgb(15 23 42 / 0.14);
+    backdrop-filter: blur(12px);
+  }
+
+  .glass-button {
+    border: 1px solid rgb(255 255 255 / 0.2);
+    border-radius: 0.75rem;
+    background: rgb(255 255 255 / 0.1);
+    padding: 0.75rem 1rem;
+    color: #fff;
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+  }
+
+  .glass-button:hover {
+    background: rgb(255 255 255 / 0.2);
+  }
+
+  .glass-input {
+    width: 100%;
+    border: 1px solid rgb(255 255 255 / 0.2);
+    border-radius: 0.75rem;
+    background: rgb(255 255 255 / 0.1);
+    padding: 0.75rem 1rem;
+    color: #fff;
+    outline: none;
+    transition: border-color 200ms ease, background-color 200ms ease;
+  }
+
+  .glass-input::placeholder {
+    color: rgb(255 255 255 / 0.5);
+  }
+
+  .glass-input:focus {
+    border-color: rgb(255 255 255 / 0.3);
+  }
+
+  .glass-chip {
+    border: 1px solid rgb(255 255 255 / 0.2);
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.1);
+    padding: 0.5rem 0.75rem;
+    color: rgb(255 255 255 / 0.8);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+  }
+
+  .glass-chip:hover {
+    background: rgb(255 255 255 / 0.2);
+  }
+}
+
+/* Safely hides the Next.js dev portal overlay if it blocks your UI */
+nextjs-portal {
+  display: none !important;
 }

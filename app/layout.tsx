@@ -8,10 +8,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="overflow-x-hidden bg-slate-100 text-slate-900">
-        <div className="mx-auto w-full max-w-md min-h-screen overflow-x-hidden bg-white">
+      <body className="overflow-x-hidden text-white">
+        <div className="mx-auto max-w-md min-h-screen px-4">
           <Navbar />
-          <main className="overflow-x-hidden pt-14">
+          <main className="overflow-x-hidden pb-28 pt-4">
             {children}
           </main>
         </div>
