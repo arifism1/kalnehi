@@ -81,7 +81,7 @@ async function buildPlanPayload({
   availableMinutes: number
   preferences?: PlannerPreferences
 }) {
-  const { source, plan, tasks: planTasks } = await planDay(userId, {
+  const { plan, tasks: planTasks } = await planDay(userId, {
     availableMinutes,
     preferences,
   })
@@ -93,17 +93,8 @@ async function buildPlanPayload({
     ...plan,
     tasks,
     persisted,
-    source,
-    summary:
-      source === "ai"
-        ? "AI generated a backup study plan for today."
-        : plan.summary,
-    notes:
-      source === "ai" && (!plan.notes || plan.notes.length === 0)
-        ? [
-            "Database planner had no usable topics, so Kalnehi generated a high-impact fallback plan.",
-          ]
-        : plan.notes,
+    summary: plan.summary,
+    notes: plan.notes,
   }
 }
 
